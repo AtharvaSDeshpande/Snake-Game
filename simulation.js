@@ -17,7 +17,7 @@ class simulation {
         this.snakeCoordinates.push(new Point(11, 10));
         this.snakeCoordinates.push(new Point(12, 10));
         this.snakeCoordinates.push(new Point(13, 10));
-        this.canvasGrid.border[20][20].fillborder("blue");
+        this.canvasGrid.border[20][20].fillFood("gold");
         this.fruitCoordinate = this.random();
         // this.canvasGrid.drawgrid();
     }
@@ -49,7 +49,8 @@ class simulation {
                     if (this.currentKeyCode != 39) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x - 1), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y));
                         if (nextPoint.x == -1 || this.isPresent(nextPoint)) {
-                            alert("Game Over");
+                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
+                            
                             this.animationIsOn = false;
                         }
                         else {
@@ -69,7 +70,7 @@ class simulation {
                     if (this.currentKeyCode != 40) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y - 1));
                         if (nextPoint.y == -1 || this.isPresent(nextPoint)) {
-                            alert("Game Over");
+                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
                             this.animationIsOn = false;
                         }
                         else {
@@ -89,7 +90,7 @@ class simulation {
                     if (this.currentKeyCode != 37) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x + 1), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y));
                         if (nextPoint.x == 50 || this.isPresent(nextPoint)) {
-                            alert("Game Over");
+                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
                             this.animationIsOn = false;
                         }
                         else {
@@ -109,7 +110,7 @@ class simulation {
                     if (this.currentKeyCode != 38) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y + 1));
                         if (nextPoint.y == 50 || this.isPresent(nextPoint)) {
-                            alert("Game Over");
+                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
                             this.animationIsOn = false;
                         }
                         else {
@@ -149,11 +150,11 @@ class simulation {
     }
     drawall() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.canvasGrid.border[this.fruitCoordinate.x][this.fruitCoordinate.y].fillborder("blue");
+        this.canvasGrid.border[this.fruitCoordinate.x][this.fruitCoordinate.y].fillFood("gold");
         for (let i = 0; i < this.snakeCoordinates.length - 1; i++) {
-            simulate.canvasGrid.border[this.snakeCoordinates[i].x][this.snakeCoordinates[i].y].fillborder("red");
+            simulate.canvasGrid.border[this.snakeCoordinates[i].x][this.snakeCoordinates[i].y].fillborder("brown");
         }
-        simulate.canvasGrid.border[this.snakeCoordinates[this.snakeCoordinates.length - 1].x][this.snakeCoordinates[this.snakeCoordinates.length - 1].y].fillhead("red", this.backward, this.isHorizontalMotion);
+        simulate.canvasGrid.border[this.snakeCoordinates[this.snakeCoordinates.length - 1].x][this.snakeCoordinates[this.snakeCoordinates.length - 1].y].fillhead("brown", this.backward, this.isHorizontalMotion);
     }
 }
 //# sourceMappingURL=simulation.js.map

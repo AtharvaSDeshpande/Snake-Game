@@ -23,6 +23,21 @@ class cell {
         var l = new line(this.border[3], this.border[2], this.canvas);
         l.draw();
     }
+    fillFood(color)
+    {
+        this.context.save();
+        this.context.beginPath();
+        // this.context.fillStyle = "#42adc0";
+        this.context.fillStyle = color;
+        this.context.moveTo(this.centre.x,this.centre.y-5);
+        this.context.lineTo(this.centre.x-5,this.centre.y);
+        this.context.lineTo(this.centre.x,this.centre.y+5);
+        this.context.lineTo(this.centre.x+5,this.centre.y);
+        this.context.lineTo(this.centre.x,this.centre.y-5);
+        this.context.fill();
+        this.context.closePath();
+        this.context.restore();
+    }
     fillborder(color) {
         this.context.save();
         this.context.beginPath();

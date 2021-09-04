@@ -12,6 +12,7 @@ function key(keyCode) {
     // simulate.computeNextCoordinate(pressedKey);
 }
 function start() {
+    document.getElementById("message").innerHTML = '<h1>Score: &nbsp;</h1><h1 id = "points">0</h1>'
     animate();
 }
 function animate() {
