@@ -17,7 +17,7 @@ class simulation {
         this.snakeCoordinates.push(new Point(11, 10));
         this.snakeCoordinates.push(new Point(12, 10));
         this.snakeCoordinates.push(new Point(13, 10));
-        this.canvasGrid.border[20][20].fillFood("gold");
+        this.canvasGrid.border[20][20].fillFood("lightcoral");
         this.fruitCoordinate = this.random();
         // this.canvasGrid.drawgrid();
     }
@@ -150,11 +150,11 @@ class simulation {
     }
     drawall() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.canvasGrid.border[this.fruitCoordinate.x][this.fruitCoordinate.y].fillFood("gold");
+        this.canvasGrid.border[this.fruitCoordinate.x][this.fruitCoordinate.y].fillFood("lightcoral");
         for (let i = 0; i < this.snakeCoordinates.length - 1; i++) {
-            simulate.canvasGrid.border[this.snakeCoordinates[i].x][this.snakeCoordinates[i].y].fillborder("brown");
+            simulate.canvasGrid.border[this.snakeCoordinates[i].x][this.snakeCoordinates[i].y].fillborder("#E6A700");
         }
-        simulate.canvasGrid.border[this.snakeCoordinates[this.snakeCoordinates.length - 1].x][this.snakeCoordinates[this.snakeCoordinates.length - 1].y].fillhead("brown", this.backward, this.isHorizontalMotion);
+        simulate.canvasGrid.border[this.snakeCoordinates[this.snakeCoordinates.length - 1].x][this.snakeCoordinates[this.snakeCoordinates.length - 1].y].fillhead("#E6A700", this.backward, this.isHorizontalMotion);
     }
 }
 //# sourceMappingURL=simulation.js.map

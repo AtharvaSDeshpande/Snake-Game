@@ -1,7 +1,7 @@
 body{
     display: grid;
     place-items: center;
-    background-color: rgb(0, 43, 63);
+    background-color: rgb(0, 23, 34);
 }
 #canvas {
     background-color: rgb(10, 31, 0);
@@ -12,7 +12,4 @@ body{
     color: crimson;
     text-shadow: 1px 1px darkblue;
     text-transform: uppercase;
-}
-.A{
-    color: teal;
 }

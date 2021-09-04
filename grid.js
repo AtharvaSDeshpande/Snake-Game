@@ -29,11 +29,11 @@ class cell {
         this.context.beginPath();
         // this.context.fillStyle = "#42adc0";
         this.context.fillStyle = color;
-        this.context.moveTo(this.centre.x,this.centre.y-5);
-        this.context.lineTo(this.centre.x-5,this.centre.y);
-        this.context.lineTo(this.centre.x,this.centre.y+5);
-        this.context.lineTo(this.centre.x+5,this.centre.y);
-        this.context.lineTo(this.centre.x,this.centre.y-5);
+        this.context.moveTo(this.centre.x,this.centre.y-6);
+        this.context.lineTo(this.centre.x-6,this.centre.y);
+        this.context.lineTo(this.centre.x,this.centre.y+6);
+        this.context.lineTo(this.centre.x+6,this.centre.y);
+        this.context.lineTo(this.centre.x,this.centre.y-6);
         this.context.fill();
         this.context.closePath();
         this.context.restore();
