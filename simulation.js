@@ -49,7 +49,7 @@ class simulation {
                     if (this.currentKeyCode != 39) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x - 1), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y));
                         if (nextPoint.x == -1 || this.isPresent(nextPoint)) {
-                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
+                           document.getElementById("gameOver").style.visibility = "";
                             
                             this.animationIsOn = false;
                         }
@@ -70,7 +70,7 @@ class simulation {
                     if (this.currentKeyCode != 40) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y - 1));
                         if (nextPoint.y == -1 || this.isPresent(nextPoint)) {
-                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
+                           document.getElementById("gameOver").style.visibility = "";
                             this.animationIsOn = false;
                         }
                         else {
@@ -90,7 +90,7 @@ class simulation {
                     if (this.currentKeyCode != 37) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x + 1), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y));
                         if (nextPoint.x == 50 || this.isPresent(nextPoint)) {
-                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
+                           document.getElementById("gameOver").style.visibility = "";
                             this.animationIsOn = false;
                         }
                         else {
@@ -110,7 +110,7 @@ class simulation {
                     if (this.currentKeyCode != 38) {
                         let nextPoint = new Point((this.snakeCoordinates[this.snakeCoordinates.length - 1].x), (this.snakeCoordinates[this.snakeCoordinates.length - 1].y + 1));
                         if (nextPoint.y == 50 || this.isPresent(nextPoint)) {
-                            document.getElementById("message").innerHTML = "<h1 class = 'points'>GAME OVER</h1>";
+                           document.getElementById("gameOver").style.visibility = "";
                             this.animationIsOn = false;
                         }
                         else {
@@ -132,7 +132,10 @@ class simulation {
             this.computeNextCoordinate(this.currentKeyCode);
         }
         if (this.compare(this.fruitCoordinate, this.snakeCoordinates[this.snakeCoordinates.length - 1])) {
-            this.fruitCoordinate = this.random();
+            do{
+                this.fruitCoordinate = this.random();
+            }while(this.isPresent(this.fruitCoordinate));
+            
             this.score += 10;
             document.getElementById("points").innerHTML = (this.score + "");
         }
